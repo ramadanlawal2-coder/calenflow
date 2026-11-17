@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CalenFlow">
+  <defs>
+    <linearGradient id="cf-tile" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5e5cee" />
+      <stop offset="0.55" stop-color="#4f48e1" />
+      <stop offset="1" stop-color="#3e36b6" />
+    </linearGradient>
+    <linearGradient id="cf-peg" x1="32" y1="6" x2="32" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" />
+      <stop offset="1" stop-color="#dedcf8" />
+    </linearGradient>
+    <linearGradient id="cf-ring" x1="16" y1="22" x2="49" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e9ebfe" />
+      <stop offset="0.55" stop-color="#dde1fd" />
+      <stop offset="1" stop-color="#c8cef9" />
+    </linearGradient>
+    <mask id="cf-ring-mask">
+      <ellipse cx="32.3" cy="34.5" rx="16.55" ry="12.85" fill="white" />
+      <ellipse cx="33.5" cy="34.8" rx="11" ry="8" fill="black" />
+      <path d="M29 34.2C26.5 34.6 23.5 35.3 20.9 36.9C21.8 39.2 23.2 40.9 25 41.5C27 42.2 29.2 41.6 31 40.2L34 36Z" fill="black" />
+    </mask>
+  </defs>
+
+  <rect width="64" height="64" rx="14.1" fill="url(#cf-tile)" />
+
+  <rect x="16.6" y="6.7" width="5.6" height="7.7" rx="2.6" fill="url(#cf-peg)" transform="rotate(-3 19.4 10.5)" />
+  <rect x="41.5" y="6.7" width="5.6" height="7.7" rx="2.6" fill="url(#cf-peg)" transform="rotate(3 44.3 10.5)" />
+
+  <rect x="9.2" y="10.6" width="45.6" height="40.8" rx="6.2" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.16" stroke-width="0.6" />
+
+  <path d="M15.4 10.6H48.6A6.2 6.2 0 0 1 54.8 16.8V21.2H9.2V16.8A6.2 6.2 0 0 1 15.4 10.6Z" fill="#ffffff" fill-opacity="0.22" />
+  <path d="M9.4 21.2H54.6" stroke="#ffffff" stroke-opacity="0.22" stroke-width="0.7" />
+
+  <ellipse cx="32.3" cy="34.5" rx="16.55" ry="12.85" fill="url(#cf-ring)" mask="url(#cf-ring-mask)" />
+
+  <circle cx="24.9" cy="39.2" r="1.1" fill="#e3e1fc" opacity="0.95" />
+  <circle cx="33.9" cy="34.7" r="1.2" fill="#94a0ff" opacity="0.7" />
+  <circle cx="46" cy="28.3" r="3.4" fill="#a5f3fc" opacity="0.18" />
+  <circle cx="46" cy="28.3" r="2.35" fill="#a5f3fc" />
+</svg>

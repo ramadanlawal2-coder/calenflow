@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   CalenFlow design tokens
+   Raw custom properties are the single source of truth. Tailwind's theme
+   aliases below expose them as utilities (bg-canvas, text-ink, border-line…).
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --cf-primary: #4f48e1;
+  --cf-accent: #5e5cee;
+  --cf-canvas: #faf8ff;
+  --cf-surface: #ffffff;
+  --cf-input: #f2f3ff;
+  --cf-ink: #171b26;
+  --cf-muted: #464555;
+  --cf-border: #e5e7f6;
+  --cf-success: #005338;
+  --cf-success-soft: #d1fae5;
+  --cf-warning: #92400e;
+  --cf-warning-soft: #fef3c7;
+  --cf-danger: #ba1a1a;
+  --cf-danger-soft: #ffe9ec;
+  --cf-faint: #8b8d92;
+
+  --cf-radius-card: 20px;
+  --cf-radius-control: 12px;
+  --cf-shadow-card: 0 18px 45px -32px rgb(23 27 38 / 0.45);
+  --cf-shadow-float: 0 24px 60px -28px rgb(23 27 38 / 0.35);
+}
+
+@theme inline {
+  --color-canvas: var(--cf-canvas);
+  --color-surface: var(--cf-surface);
+  --color-input: var(--cf-input);
+  --color-primary: var(--cf-primary);
+  --color-accent: var(--cf-accent);
+  --color-ink: var(--cf-ink);
+  --color-muted: var(--cf-muted);
+  --color-line: var(--cf-border);
+  --color-success: var(--cf-success);
+  --color-success-soft: var(--cf-success-soft);
+  --color-warning: var(--cf-warning);
+  --color-warning-soft: var(--cf-warning-soft);
+  --color-danger: var(--cf-danger);
+  --color-danger-soft: var(--cf-danger-soft);
+  --color-faint: var(--cf-faint);
+
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --radius-card: var(--cf-radius-card);
+  --radius-control: var(--cf-radius-control);
+
+  --shadow-card: var(--cf-shadow-card);
+  --shadow-float: var(--cf-shadow-float);
+}
+
+@layer base {
+  * {
+    border-color: var(--cf-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background-color: var(--cf-canvas);
+    color: var(--cf-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--cf-accent) 24%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cf-accent);
+    outline-offset: 2px;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.55;
+  }
+}
+
+@layer components {
+  .pt-safe {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .pb-safe-nav {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-in 180ms ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 240ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
